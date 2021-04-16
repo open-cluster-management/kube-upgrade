@@ -1,7 +1,7 @@
 #!/bin/bash
 # Copyright Contributors to the Open Cluster Management project
 
-set -x
+# set -x
 set -e
 TEST_DIR=test/functional
 TEST_RESULT_DIR=$TEST_DIR/tmp
@@ -25,11 +25,11 @@ upgrade() {
    kind delete cluster  --name ${CLUSTER_NAME}-${CURRENT_VERSION}
 }
 
-# upgrade 115 1.16.0
-# upgrade 117 1.18.0
-# upgrade 118 1.19.0
+upgrade 115 1.16.0
+upgrade 117 1.18.0
+upgrade 118 1.19.0
 upgrade 119 1.20.0
-# upgrade 120 1.21.0
+upgrade 120 1.21.0
 
 if [ -z "$ERROR_REPORT" ]
 then
