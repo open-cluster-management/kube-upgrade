@@ -47,6 +47,14 @@ do
     [?]) HELP="help"
   esac
 done
+if [ "$LIST_VERSIONS" == "1" ]
+then
+  TARGET_VERSION="LIST"
+fi
+if [ -z "$TARGET_VERSION" ]
+then
+  HELP="help"
+fi
 if [ -n "$HELP" ]
 then
   echo "kube_upgrade.sh [-u <desired_version> | -l ]"
@@ -55,11 +63,6 @@ then
   echo "-h: this help"
   exit 0
 fi
-if [ "$LIST_VERSIONS" == "1" ]
-then
-  TARGET_VERSION="LIST"
-fi
-
 CONTROL_PLANE_NODES=$(kubectl get nodes| grep control | cut -d ' ' -f1 )
 WORKER_NODES=$(kubectl get nodes | grep worker| cut -d ' ' -f1 )
 

@@ -16,7 +16,7 @@ upgrade() {
    CURRENT_VERSION=$1
    TARGET_VERSION=$2
    kind create cluster --name ${CLUSTER_NAME}-${CURRENT_VERSION} --config ${TEST_DIR}/kind${CURRENT_VERSION}.yaml
-   ./kube_upgrade.sh ${TARGET_VERSION}
+   ./kube_upgrade.sh -u ${TARGET_VERSION}
    FINAL_VERSION=$(kubectl version | grep Server | cut -d ',' -f3 | cut -d ':' -f2 | tr -d '"')
    if [ "${FINAL_VERSION}" != "v${TARGET_VERSION}" ]
    then
@@ -25,7 +25,7 @@ upgrade() {
    kind delete cluster  --name ${CLUSTER_NAME}-${CURRENT_VERSION}
 }
 
-# upgrade 115 1.16.0
+upgrade 115 1.16.0
 upgrade 117 1.18.0
 upgrade 118 1.19.0
 upgrade 119 1.20.0
