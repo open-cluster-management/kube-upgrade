@@ -18,7 +18,7 @@ Check the [notes](#notes) for upgrade between 1.6.z to 1.7.z.
 
 ## Kubernetes distro 
 
-These scripts were tested on the following kubernetes distribution:
+These scripts were tested on the following kubernetes distributions:
 
 - [KinD](https://kind.sigs.k8s.io/) 
 
