@@ -1,6 +1,6 @@
 #!/bin/bash
 # Copyright Contributors to the Open Cluster Management project
-# set -x
+set -x
 set -e
 BRANCH=$1
 echo "Check all commit signed on branch: ${BRANCH}"
