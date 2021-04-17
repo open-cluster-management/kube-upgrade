@@ -1,8 +1,10 @@
 #!/bin/bash
 # Copyright Contributors to the Open Cluster Management project
 # set -x
+set -e
 BRANCH=$1
-COMMITS=$(git log main..${BRANCH} | grep commit | cut -d ' ' -f2)
+echo "Check all commit signed on branch: ${BRANCH}"
+COMMITS=$(git log origin/main..${BRANCH} | grep commit | cut -d ' ' -f2)
 for c in ${COMMITS}
 do
   COMMIT=$(git show ${c} -q)
