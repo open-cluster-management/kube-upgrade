@@ -14,7 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-        ref: 'origin/main'
+        ref: 'main'
 
     - uses: actions/checkout@v2
 
