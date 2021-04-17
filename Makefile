@@ -32,7 +32,7 @@ check-copyright:
 
 .PHONY: dco
 dco:
-	@build/dco.sh ${BRANCH_NAME}
+	@build/dco.sh ${COMMIT_MSG}
 
 .PHONY: test
 test:
