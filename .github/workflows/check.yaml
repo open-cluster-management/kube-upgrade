@@ -1,0 +1,26 @@
+# Copyright Contributors to the Open Cluster Management project
+
+name: Check
+
+on:
+  push:
+    branches: [ main, release-* ]
+  pull_request:
+    branches: [ main, release-* ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Current branch name
+      shell: bash
+      run: echo "##[set-output name=BRANCH_NAME;]$(echo ${GITHUB_REF#refs/heads/})"
+      id: current_branch
+
+    - name: DCO
+      run: make dco BRANCH_NAME=${BRANCH_NAME}
+
+    - name: Check
+      run: make check 
