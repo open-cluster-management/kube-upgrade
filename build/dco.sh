@@ -1,6 +1,6 @@
 #!/bin/bash
 # Copyright Contributors to the Open Cluster Management project
-# set -x
+set -x
 BRANCH=$(git branch --show-current)
 COMMITS=$(git log origin/main..${BRANCH} | grep commit | cut -d ' ' -f2)
 for c in ${COMMITS}
