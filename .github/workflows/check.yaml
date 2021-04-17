@@ -14,5 +14,5 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: DCO
-      run: make dco
+    - name: Check
+      run: make check
