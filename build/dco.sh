@@ -4,7 +4,7 @@
 set -e
 BRANCH=$1
 echo "Check all commit signed on branch: ${BRANCH}"
-COMMITS=$(git log ${BRANCH} -- | grep commit | cut -d ' ' -f2)
+COMMITS=$(git log origin/main..${BRANCH} -- | grep ^commit | cut -d ' ' -f2)
 for c in ${COMMITS}
 do
   COMMIT=$(git show ${c} -q)
