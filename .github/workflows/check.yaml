@@ -14,7 +14,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-        fetch-depth: '0'
+        ref: 'origin/main'
+
+    - uses: actions/checkout@v2
 
     - name: Extract branch name
       shell: bash
