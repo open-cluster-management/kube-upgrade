@@ -20,7 +20,7 @@ jobs:
       id: extract_branch
 
     - name: DCO
-      run: make dco BRANCH_NAME=${{ steps.current_branch.outputs.branch }}
+      run: make dco BRANCH_NAME=${{ steps.extract_branch.outputs.branch }}
 
     - name: Check
       run: make check 
