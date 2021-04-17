@@ -2,7 +2,7 @@
 # Copyright Contributors to the Open Cluster Management project
 # set -x
 BRANCH=$1
-COMMITS=$(git log origin/main..${BRANCH} | grep commit | cut -d ' ' -f2)
+COMMITS=$(git log main..${BRANCH} | grep commit | cut -d ' ' -f2)
 for c in ${COMMITS}
 do
   COMMIT=$(git show ${c} -q)
