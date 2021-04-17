@@ -28,7 +28,7 @@ check: check-copyright
 
 .PHONY: dco
 dco:
-	@build/dco.sh
+	@build/dco.sh ${BRANCH_NAME}
 
 .PHONY: check-copyright
 check-copyright:
