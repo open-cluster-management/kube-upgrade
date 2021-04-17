@@ -1,0 +1,10 @@
+#!/bin/bash -e
+
+# Copyright (c) 2020 Red Hat, Inc.
+# Copyright Contributors to the Open Cluster Management project
+
+if ! grep Signed-off-by "$1" > /dev/null
+then 
+    echo "Signoff missing"
+    exit 1
+fi

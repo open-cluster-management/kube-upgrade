@@ -20,7 +20,9 @@
 # else
 #     echo "All commits signed"
 # fi
-if ! echo "$1" | grep Signed-off-by > /dev/null
+cat $1
+if ! cat "$1" | grep Signed-off-by > /dev/null
 then 
     echo "Signoff missing"
+    exit 1
 fi
