@@ -30,10 +30,6 @@ check: check-copyright
 check-copyright:
 	@build/check-copyright.sh
 
-.PHONY: dco
-dco:
-	@build/dco.sh ${COMMIT_MSG}
-
 .PHONY: test
 test:
 	@build/run-unit-tests.sh

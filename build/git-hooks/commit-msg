@@ -3,6 +3,6 @@
 
 if ! grep Signed-off-by "$1" > /dev/null
 then 
-    echo "Signoff missing"
+    echo -e "Signoff missing\n'git commit -a --signoff -m <your_message>'"
     exit 1
 fi
