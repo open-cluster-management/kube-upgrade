@@ -1,16 +1,20 @@
 #!/bin/bash
 # Copyright Contributors to the Open Cluster Management project
-
+# set -x
 BRANCH=$(git branch --show-current)
 COMMITS=$(git log origin/main..${BRANCH} | grep commit | cut -d ' ' -f2)
 for c in ${COMMITS}
 do
-  COMMIT=$(git show ${c})
-  echo ${COMMIT} | grep Signed-off-by > /dev/null
-  if [ $? != 0 ]
+  COMMIT=$(git show ${c} -q)
+  if echo ${COMMIT} | grep Signed-off-by > /dev/null
   then
-     echo "${c} not signed"
-     exit 1
+     ERROR=${ERROR}"commit id ${c} not signed\n"
   fi
 done
-echo "All commits signed"
+if [ "${ERROR}" != "" ]
+then
+    echo ${ERROR}
+    exit 1
+else
+    echo "All commits signed"
+fi
