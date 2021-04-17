@@ -16,6 +16,7 @@ Check the [notes](#notes) for upgrade between 1.6.z to 1.7.z.
 2. Get the list of available version: `./kube_upgrade.sh -l`
 3. Run `./kube_upgrade.sh -u <desired_version>` 
 
+
 ## Kubernetes distro 
 
 These scripts were tested on the following kubernetes distribution:
